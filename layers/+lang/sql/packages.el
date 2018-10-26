@@ -91,7 +91,7 @@
           (sql-send-region start end)
           (evil-insert-state)))
 
-      (defun spacemacs/sql-send-line-and-focus ()
+      (defun spacemacs/sql-send-line-and-next-and-focus ()
         "Send the current line to SQLi and switch to SQLi in `insert state'."
         (interactive)
         (let ((sql-pop-to-buffer-after-send-region t))
@@ -126,7 +126,7 @@
         "sr" 'sql-send-region
         "sR" 'spacemacs/sql-send-region-and-focus
         "sl" 'sql-send-line-and-next
-        "sL" 'sql-send-line-and-next
+        "sL" 'spacemacs/sql-send-line-and-next-and-focus
 
         ;; listing
         "la" 'sql-list-all
