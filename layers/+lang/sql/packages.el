@@ -91,6 +91,13 @@
           (sql-send-region start end)
           (evil-insert-state)))
 
+      (defun spacemacs/sql-send-line-and-focus ()
+        "Send the current line to SQLi and switch to SQLi in `insert state'."
+        (interactive)
+        (let ((sql-pop-to-buffer-after-send-region t))
+          (sql-send-line-and-next)
+          (evil-insert-state)))
+
       (spacemacs/declare-prefix-for-mode 'sql-mode "mb" "buffer")
       (spacemacs/declare-prefix-for-mode 'sql-mode "mh" "dialects")
       (spacemacs/declare-prefix-for-mode 'sql-mode "ms" "interactivity")
@@ -118,6 +125,8 @@
         "sQ" 'spacemacs/sql-send-string-and-focus
         "sr" 'sql-send-region
         "sR" 'spacemacs/sql-send-region-and-focus
+        "sl" 'sql-send-line-and-next
+        "sL" 'sql-send-line-and-next
 
         ;; listing
         "la" 'sql-list-all
